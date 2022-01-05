@@ -19,7 +19,7 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), "Add to basket button is missing"
 
     def should_be_promo_in_url(self):
-        assert "promo=NewYear" in self.browser.current_url, "New year promo is missing in url"
+        assert "promo=" in self.browser.current_url, "Promo is missing in url"
 
     def should_compare_prices(self):
         p_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
@@ -28,8 +28,8 @@ class ProductPage(BasePage):
 
     def should_compare_names(self):
         p_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
-        msg = self.browser.find_element(*ProductPageLocators.MESSAGE_ABOUT_ADDING).text
-        assert p_name in msg, "The product name is not in the message"
+        p_name_msg = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE_ABOUT_ADDING).text
+        assert p_name == p_name_msg, "The product name is not equal to the name in the message"
 
     def should_add_to_basket(self):
         add_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)

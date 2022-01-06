@@ -1,10 +1,9 @@
 from selenium.webdriver.common.by import By
 
-class MainPageLocators():
-
-    # each locator is represented by a pair (a, b), where "a" is how to look and "b" what to look for
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-
+class BasePageLocators():
+     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    
 class LoginPageLocators():
 
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form") 
@@ -18,3 +17,7 @@ class ProductPageLocators():
 
     PRODUCT_NAME_IN_MESSAGE_ABOUT_ADDING = (By.CSS_SELECTOR, ".alert-success:nth-child(1) strong")
     BASKET_PRICE = (By.CSS_SELECTOR, ".alertinner p strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert-success:nth-child(1)")
+
+class MainPageLocators():
+    pass

@@ -5,7 +5,7 @@ from .locators import ProductPageLocators
 class ProductPage(BasePage):
    
     def should_be_product_page(self):
-        self.should_be_promo_in_url
+       # self.should_be_promo_in_url
         self.should_be_product_name()
         self.should_be_product_price()
         

@@ -6,9 +6,7 @@ from .pages.basket_page import BasketPage
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-@pytest.mark.login_guest
 class TestLoginFromMainPage():
-   # @pytest.mark.skip(reason="I am testing something different now")
     def test_guest_should_see_login_link(self, browser):
         page = MainPage(browser, link)
         page.open()
@@ -23,10 +21,10 @@ class TestLoginFromMainPage():
         login_page.should_be_login_page()
 
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-    page = MainPage(browser, link) # Гость открывает главную страницу
+    page = MainPage(browser, link)
     page.open()
-    page.go_to_basket_page()# Переходит в корзину по кнопке в шапке сайта
+    page.go_to_basket_page()
     basket_page = BasketPage(browser, browser.current_url)
-    basket_page.basket_should_be_empty() # Ожидаем, что в корзине нет товаров
-    basket_page.should_be_text_basket_empty() # Ожидаем, что есть текст о том что корзина пуста
+    basket_page.basket_should_be_empty()
+    basket_page.should_be_text_basket_empty()
 
